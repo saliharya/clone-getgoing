@@ -20,6 +20,10 @@ body {
   background-color: #ffffff;
 }
 
+.custom-shadow {
+  box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.3);
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
