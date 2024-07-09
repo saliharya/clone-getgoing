@@ -1,4 +1,6 @@
+import React from 'react';
 import Link from 'next/link';
+import HamburgerIcon from '../hamburger_icon';
 
 const Header = () => {
     return (
@@ -17,7 +19,7 @@ const Header = () => {
                         </button>
                     </div>
                 </div>
-                <nav className="flex space-x-6">
+                <nav className="xl:flex hidden space-x-6">
                     <Link href="/" className="text-red-500 text-2xl">
                         Beranda
                     </Link>
@@ -31,6 +33,7 @@ const Header = () => {
                         Login
                     </Link>
                 </nav>
+                <HamburgerIcon />
             </div>
         </header>
     );
