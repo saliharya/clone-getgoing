@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import HamburgerIcon from '../hamburger_icon';
+import HamburgerIcon from '../atoms/Hamburger';
 
 const Header = () => {
     return (
