@@ -1,9 +1,9 @@
-import Header from "../components/organisms/Header";
+import Carousel from "@/components/organisms/Carousel";
 
 export default function Home() {
   return (
     <div className="container">
-      <Header />
+      <Carousel />
     </div>
   )
 }

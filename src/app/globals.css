@@ -29,3 +29,15 @@ body {
     text-wrap: balance;
   }
 }
+
+.filter-red {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(7463%) hue-rotate(358deg) brightness(104%) contrast(119%);
+}
+
+.custom-image-height {
+  height: 100px;
+}
+
+.custom-rounded {
+  border-radius: 96px;
+}
