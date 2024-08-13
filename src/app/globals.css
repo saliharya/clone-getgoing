@@ -17,13 +17,11 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #ffffff;
+}
+
+.custom-shadow {
+  box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.3);
 }
 
 @layer utilities {
