@@ -7,7 +7,7 @@ export default function Home() {
       <div className="mb-8">
         <Carousel />
       </div>
-      <div className="mb-8">
+      <div className="mb-8 pl-8">
         <Popular />
       </div>
     </>

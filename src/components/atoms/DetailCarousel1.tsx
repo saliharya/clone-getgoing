@@ -16,7 +16,7 @@ const CarouselItem: FC<CarouselItemProps> = ({ icon, title, description }) => (
     <div className="flex items-start space-x-4">
         <span className="text-2xl">{icon}</span>
         <div className="flex flex-col">
-            <span className="font-bold text-lg">{title}</span>
+            <span className="font-bold text-lg text-center">{title}</span>
             <p className="font-bold">{description}</p>
         </div>
     </div>

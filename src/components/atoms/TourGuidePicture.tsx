@@ -6,7 +6,7 @@ interface TourGuidePictureProps {
 }
 
 const TourGuidePicture: React.FC<TourGuidePictureProps> = ({ src, alt }) => (
-    <img src={src} alt={alt} className="rounded-2xl w-32 h-32 object-cover" />
+    <img src={src} alt={alt} className="rounded-2xl w-56 h-56 object-cover" />
 );
 
 export default TourGuidePicture;

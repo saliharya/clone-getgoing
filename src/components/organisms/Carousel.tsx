@@ -13,29 +13,30 @@ const slides = [
 const Carousel: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const handlePrev = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
-    };
-
-    const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
+    const handleNavigation = (direction: 'prev' | 'next') => {
+        setCurrentIndex(prevIndex => {
+            const newIndex = direction === 'prev'
+                ? (prevIndex === 0 ? slides.length - 1 : prevIndex - 1)
+                : (prevIndex === slides.length - 1 ? 0 : prevIndex + 1);
+            return newIndex;
+        });
     };
 
     const { src, alt, carouselDetail } = slides[currentIndex];
 
     return (
         <div className="relative flex flex-col items-center p-6 rounded-lg py-12">
-            <div className="flex flex-col xl:flex-row w-full max-w-6xl mx-auto items-stretch">
-                <div className="w-full xl:w-1/2 lg:w-1/2 md:w-full flex items-center justify-center">
+            <div className="flex flex-col xl:flex-row w-full max-w-6xl mx-auto">
+                <div className="w-full xl:w-1/2 flex items-center justify-center">
                     <ImageCard src={src} alt={alt} />
                 </div>
-                <div className="w-full xl:w-1/2 lg:w-1/2 xl:pl-6 lg:pl-6 md:pl-0 mt-4 xl:mt-0 flex items-center">
+                <div className="w-full xl:w-1/2 xl:pl-6 flex items-center justify-center mt-4 xl:mt-0">
                     {carouselDetail}
                 </div>
             </div>
-            <div className="absolute top-1/2 transform -translate-y-1/2 flex justify-between w-full">
-                <ArrowButton direction="left" onClick={handlePrev} />
-                <ArrowButton direction="right" onClick={handleNext} />
+            <div className="absolute top-1/2 transform -translate-y-1/2 flex justify-between w-full px-4">
+                <ArrowButton direction="left" onClick={() => handleNavigation('prev')} />
+                <ArrowButton direction="right" onClick={() => handleNavigation('next')} />
             </div>
         </div>
     );

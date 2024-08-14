@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function DetailCarousel2() {
     return (
-        <div className="flex flex-col items-center justify-center text-center">
+        <div className="flex flex-col items-center justify-center">
             <p className="text-gray-500 text-xl mb-4">
                 Eksplor dan nikmati mudah liburan ke luar negeri dengan
             </p>
@@ -15,8 +15,8 @@ export default function DetailCarousel2() {
                         <Image
                             src="/AppStore.svg"
                             alt="App Store"
-                            width={192} // Corresponds to w-48
-                            height={192} // Corresponds to h-48
+                            width={192}
+                            height={192}
                             priority={true}
                         />
                     </a>
