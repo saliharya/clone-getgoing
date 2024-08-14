@@ -1,39 +1,49 @@
-import React from 'react';
-import Link from 'next/link';
+"use client";
+
+import React, { useState, useEffect } from 'react';
+import Logo from '../atoms/Logo';
+import SearchInput from '../atoms/SearchInput';
+import NavLink from '../atoms/NavLink';
 import HamburgerIcon from '../atoms/Hamburger';
 
-const Header = () => {
+const Header: React.FC = () => {
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <header className="bg-white h-48 absolute top-0 left-0 w-full">
-            <div className="container mx-auto flex items-center justify-between px-6 h-full">
-                <div className="flex items-center">
-                    <img src="/logo.png" alt="Logo" className="mr-4 h-24" />
-                    <div className="relative">
-                        <input
-                            type="text"
-                            placeholder="Cari negara, kota, atau guide"
-                            className="border rounded-full px-4 py-2 focus:outline-none focus:border-blue-300 text-lg shadow-md custom-shadow w-96 h-12 pr-12"
-                        />
-                        <button className="absolute inset-y-0 right-0 flex items-center justify-center bg-transparent pr-1 py-1">
-                            <img src="/arrow-right.svg" alt="Search" className="w-full h-full" />
-                        </button>
-                    </div>
+        <header
+            className={`fixed top-0 left-0 w-full z-50 px-4 flex items-center justify-between transition-all duration-300 ${isScrolled ? 'bg-white bg-opacity-25 backdrop-blur-md shadow-lg' : 'bg-transparent shadow-none'}`}
+        >
+            <div className="container mx-auto flex items-center justify-between h-full">
+                <div className="flex items-center space-x-4">
+                    <Logo />
+                    <SearchInput />
                 </div>
-                <nav className="xl:flex hidden space-x-6">
-                    <Link href="/" className="text-red-500 text-2xl">
+                <nav className="hidden xl:flex items-center space-x-8">
+                    <NavLink href="/" className="text-red-600 hover:text-red-800 text-lg font-semibold transition duration-300">
                         Beranda
-                    </Link>
-                    <Link href="/services" className="text-red-500 text-2xl">
+                    </NavLink>
+                    <NavLink href="/services" className="text-red-600 hover:text-red-800 text-lg font-semibold transition duration-300">
                         Service Kami
-                    </Link>
-                    <Link href="/blog" className="text-red-500 text-2xl">
+                    </NavLink>
+                    <NavLink href="/blog" className="text-red-600 hover:text-red-800 text-lg font-semibold transition duration-300">
                         Blog
-                    </Link>
-                    <Link href="/login" className="text-black hover:text-red-500 text-2xl px-6">
+                    </NavLink>
+                    <NavLink href="/login" className="text-gray-800 hover:text-red-600 text-lg font-semibold transition duration-300 px-6">
                         Login
-                    </Link>
+                    </NavLink>
                 </nav>
-                <HamburgerIcon />
+                <div className="xl:hidden">
+                    <HamburgerIcon />
+                </div>
             </div>
         </header>
     );

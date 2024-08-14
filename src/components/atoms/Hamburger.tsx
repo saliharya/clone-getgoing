@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-const HamburgerIcon = () => {
+const HamburgerIcon: React.FC = () => {
     const [isActive, setIsActive] = useState(false);
 
     useEffect(() => {
@@ -22,31 +22,37 @@ const HamburgerIcon = () => {
     }, [isActive]);
 
     return (
-        <div className="md:block sm:block xl:hidden">
+        <div className="relative lg:hidden">
             <button
-                className="hamburger-menu flex items-center justify-center w-10 h-10 bg-transparent outline-none focus:outline-none"
+                className="hamburger-menu flex items-center justify-center w-12 h-12 bg-transparent border-none outline-none focus:outline-none"
                 onClick={() => setIsActive(!isActive)}
+                aria-label="Toggle menu"
             >
-                <div className="relative w-6 py-1">
-                    <div className={`absolute top-0 left-0 w-full h-0.5 bg-slate-500 rounded transition-all duration-300 ${isActive ? 'hidden' : ''}`}></div>
-                    <div className={`absolute top-0 left-0 w-full h-0.5 bg-orange-500 rounded transition-all duration-300 ${isActive ? 'transform rotate-45 -translate-y-1.5 top-0' : 'translate-y-1.5'}`}></div>
-                    <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-red-600 rounded transition-all duration-300 ${isActive ? 'transform -rotate-45 translate-y-1.5 top-0' : 'translate-y-1.5'}`}></div>
+                <div className="relative w-6 h-6">
+                    <div
+                        className={`absolute top-0 left-0 w-full h-0.5 bg-gray-600 rounded transition-transform duration-300 ease-in-out ${isActive ? 'opacity-0' : ''}`}
+                    />
+                    <div
+                        className={`absolute top-1/2 left-0 w-full h-0.5 bg-orange-500 rounded transition-transform duration-300 ease-in-out ${isActive ? 'rotate-45 translate-y-1' : ''}`}
+                    />
+                    <div
+                        className={`absolute top-1/2 left-0 w-full h-0.5 bg-red-600 rounded transition-transform duration-300 ease-in-out ${isActive ? '-rotate-45 -translate-y-1' : ''}`}
+                    />
                 </div>
-
             </button>
             {isActive && (
-                <div className="absolute right-4 mt-2 w-48 py-2 bg-white border border-gray-200 shadow-lg rounded">
+                <div className="absolute right-0 mt-2 w-48 py-2 bg-white border border-gray-200 shadow-lg rounded-lg">
                     <div className="flex flex-col px-4">
-                        <Link href="/" className=' py-2'>
+                        <Link href="/" className="block py-2 text-gray-700 hover:bg-gray-100 rounded transition duration-200">
                             Beranda
                         </Link>
-                        <Link href="/services" className=' py-2'>
+                        <Link href="/services" className="block py-2 text-gray-700 hover:bg-gray-100 rounded transition duration-200">
                             Service Kami
                         </Link>
-                        <Link href="/blog" className=' py-2'>
+                        <Link href="/blog" className="block py-2 text-gray-700 hover:bg-gray-100 rounded transition duration-200">
                             Blog
                         </Link>
-                        <Link href="/login" className="text-red-500 py-2">
+                        <Link href="/login" className="block py-2 text-red-600 hover:bg-red-50 rounded transition duration-200">
                             Login
                         </Link>
                     </div>
