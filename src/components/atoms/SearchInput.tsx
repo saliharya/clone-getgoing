@@ -8,7 +8,7 @@ const SearchInput: React.FC = () => (
             className="border rounded-full px-4 py-2 focus:outline-none focus:border-blue-300 text-lg shadow-md custom-shadow w-96 h-12 pr-12"
         />
         <button className="absolute inset-y-0 right-0 flex items-center justify-center bg-transparent pr-4 py-2">
-            <img src="/search.png" alt="Search" className="w-full h-full" />
+            <img src="/search.png" alt="Search" className="w-auto h-auto" />
         </button>
     </div>
 );
