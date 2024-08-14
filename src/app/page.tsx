@@ -1,4 +1,5 @@
 import Quote from "@/components/atoms/Quote";
+import ArticleSection from "@/components/organisms/ArticleSection";
 import Carousel from "@/components/organisms/Carousel";
 import Feature from "@/components/organisms/Feature";
 import Popular from "@/components/organisms/Popular";
@@ -34,6 +35,7 @@ export default function Home() {
         author="Cerita dari mereka yang telah menjelajahi Eropa bersama kami"
         className="text-center text-lg font-medium text-gray-700"
       />
+      <ArticleSection />
     </div>
   );
 }
