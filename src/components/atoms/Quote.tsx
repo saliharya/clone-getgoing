@@ -1,16 +1,19 @@
 import React from 'react';
 
-const Quote: React.FC = () => (
-    <div className="p-8 rounded-lg items-center justify-center text-center">
+interface QuoteProps {
+    text: React.ReactNode;
+    author: string;
+    className?: string;
+}
+
+const Quote: React.FC<QuoteProps> = ({ text, author, className }) => (
+    <div className={`p-8 rounded-lg items-center justify-center text-center ${className}`}>
         <blockquote className="lg:text-3xl font-serif italic">
             <p className="font-bold">
-                “Better to <span className="text-red-500">SEE</span> <span className='text-black'> something once than hear about it</span>
-                <span className="text-blue-500"> A THOUSAND TIMES</span>”
+                {text}
             </p>
         </blockquote>
-        <footer className="mt-4 text-sm text-gray-600">
-            - Asian Proverb
-        </footer>
+        <footer className="mt-4 text-sm text-gray-600">{author}</footer>
     </div>
 );
 
