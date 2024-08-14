@@ -5,7 +5,6 @@ import Slider from 'react-slick';
 import TourGuideCard from '../organisms/TourGuideCard';
 import { TourGuide } from '../../models/TourGuide';
 
-// Sample data for the tour guides
 const popularTourGuides = [
     new TourGuide('Naurah', 'https://ik.imagekit.io/getgoing/tr:w-800,h-1000/v0/b/getgoing-prod.appspot.com/o/bergabungFormImage%2FNaurah%20Annisa%20Wahyudi?alt=media&token=c9f4af46-9521-445f-946f-2d1aaaedfec3', ['Amsterdam, Belanda']),
     new TourGuide('Agus', 'https://ik.imagekit.io/getgoing/tr:w-800,h-1000/v0/b/getgoing-prod.appspot.com/o/bergabungFormImage%2FAgus%20Sandra?alt=media&token=921d2aff-6579-4bb7-a3fc-355ee4145f4f', ['Roma, Italia']),

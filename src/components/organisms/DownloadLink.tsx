@@ -5,7 +5,7 @@ import Image from '../atoms/Image';
 const DownloadLinks: React.FC = () => (
     <div>
         <h3 className="text-lg font-bold mb-4">DOWNLOAD DI</h3>
-        <div className="flex gap-4">
+        <div className="flex flex-col gap-4">
             <a
                 href="https://apps.apple.com/us/app/getgoing/id1602015694"
                 target="_blank"
