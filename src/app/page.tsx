@@ -1,3 +1,4 @@
+import Quote from "@/components/atoms/Quote";
 import Carousel from "@/components/organisms/Carousel";
 import Popular from "@/components/organisms/Popular";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <div className="mb-8 pl-8">
         <Popular />
       </div>
+      <Quote />
     </>
   );
 }

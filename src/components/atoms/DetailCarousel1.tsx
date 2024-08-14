@@ -13,10 +13,10 @@ const items: CarouselItemProps[] = [
 ];
 
 const CarouselItem: FC<CarouselItemProps> = ({ icon, title, description }) => (
-    <div className="flex items-start space-x-4">
+    <div className="transition-transform duration-300 ease-in-out transform hover:scale-105 hover:translate-y-[-5px] flex items-start space-x-4 bg-white p-4 hover:shadow-xl">
         <span className="text-2xl">{icon}</span>
         <div className="flex flex-col">
-            <span className="font-bold text-lg text-center">{title}</span>
+            <span className="font-bold text-lg">{title}</span>
             <p className="font-bold">{description}</p>
         </div>
     </div>
