@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import ArrowButton from '../atoms/ArrowButton';
 import ImageCard from '../atoms/ImageCard';
-import CarouselDetail from '../atoms/CarouselDetail';
+import DetailCarousel1 from '../atoms/DetailCarousel1';
+import DetailCarousel2 from '../atoms/DetailCarousel2';
 
 const slides = [
-    { src: 'image1.JPG', alt: 'Image 1', caption: 'APA YANG GETGOING PUNYA' },
-    { src: 'image2.JPG', alt: 'Image 2', caption: 'EKSPLOR DAN NIKMATI MUDAH LIBURAN KE LUAR NEGERI DENGAN' },
-    // Add more slides here
+    { src: '/image1.JPG', alt: 'Image 1', carouselDetail: <DetailCarousel1 /> },
+    { src: '/image2.JPG', alt: 'Image 2', carouselDetail: <DetailCarousel2 /> },
 ];
 
 const Carousel: React.FC = () => {
@@ -21,19 +21,19 @@ const Carousel: React.FC = () => {
         setCurrentIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
     };
 
-    const { src, alt, caption } = slides[currentIndex];
+    const { src, alt, carouselDetail } = slides[currentIndex];
 
     return (
-        <div className="flex flex-col max-h-72">
-            <div className="flex flex-col xl:flex-row xl:px-28 lg:px-28 md:px-4">
-                <div className="xl:w-1/2 lg:w-1/2 md:w-full custom-image-height">
+        <div className="relative flex flex-col items-center p-6 rounded-lg py-12">
+            <div className="flex flex-col xl:flex-row w-full max-w-6xl mx-auto items-stretch">
+                <div className="w-full xl:w-1/2 lg:w-1/2 md:w-full flex items-center justify-center">
                     <ImageCard src={src} alt={alt} />
                 </div>
-                <div className="xl:w-1/2 lg:w-1/2 xl:pl-4 lg:pl-4 md:pl-0">
-                    <CarouselDetail text={caption} />
+                <div className="w-full xl:w-1/2 lg:w-1/2 xl:pl-6 lg:pl-6 md:pl-0 mt-4 xl:mt-0 flex items-center">
+                    {carouselDetail}
                 </div>
             </div>
-            <div className="flex justify-center w-full mt-4">
+            <div className="absolute top-1/2 transform -translate-y-1/2 flex justify-between w-full">
                 <ArrowButton direction="left" onClick={handlePrev} />
                 <ArrowButton direction="right" onClick={handleNext} />
             </div>
