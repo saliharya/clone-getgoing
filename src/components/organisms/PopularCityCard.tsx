@@ -11,6 +11,7 @@ const CityCard: React.FC<CityCardProps> = ({ city }) => (
     <div className="flex flex-col items-center space-y-2">
         <PictureAtom src={city.picture} alt={city.getAltText()} />
         <NameAtom name={city.name} />
+        <p className="text-gray-500">{city.country}</p>
     </div>
 );
 
